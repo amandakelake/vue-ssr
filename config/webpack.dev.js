@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = merge(common, {
-    mode: 'development',
+    // mode: 'development',
     // 配置出口文件的地址
     output: {
         path: path.resolve(__dirname, 'dist'),

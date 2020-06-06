@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --config config/webpack.dev.js",
-    "build": "webpack --progress --config config/webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --config config/webpack.prod.js",
+    "start": "node ./server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,10 +21,12 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",

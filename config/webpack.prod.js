@@ -1,19 +1,22 @@
 const path = require('path');
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(common, {
-    mode: 'production',
+    // mode: 'production',
+    bail: true,
     devtool: 'cheap-module-source-map',
     output: {
         path: path.join(__dirname, '../dist'),
         filename: 'js/[name].[chunkhash].js',
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, '../', 'tpl/index.html'),
             minify: {
@@ -23,9 +26,9 @@ module.exports = merge(common, {
                 removeAttributeQuotes: true, // 移除属性引号
             },
         }),
-        new MiniCssExtractPlugin({
-            filename: 'css/[name].[contenthash].css',
-        }),
+        // new MiniCssExtractPlugin({
+        //     filename: 'css/[name].[contenthash].css',
+        // }),
         new OptimizeCSSAssetsPlugin(),
     ],
 });
