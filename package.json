@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --config config/webpack.dev.js"
+    "dev": "webpack-dev-server --progress --config config/webpack.dev.js",
+    "build": "webpack --progress --config config/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
     "@fd/fd-cli-plugin-format-config": "^1.0.2",
+    "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -29,6 +31,8 @@
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
+    "koa": "^2.12.0",
+    "koa-static": "^5.0.0",
     "less": "^3.11.3",
     "less-loader": "^6.1.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -44,11 +48,20 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.1",
     "@babel/runtime": "^7.10.2",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.3.2",
     "vuex": "^3.4.0"
-  }
+  },
+  "engines": {
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
+  },
+  "browserslist": [
+    "> 0.25%, not dead",
+    "not ie <= 8"
+  ]
 }

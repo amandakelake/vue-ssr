@@ -1,5 +1,7 @@
 const path = require('path');
-const { VueLoaderPlugin } = require('vue-loader');
+// const { VueLoaderPlugin } = require('vue-loader');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // webpack里面的相对路径是以当前的配置文件为基准的，不是以根路径为准
 const resolve = (dir) => path.join(__dirname, '../', dir);
@@ -41,6 +43,7 @@ module.exports = {
                 // 从下到上执行
                 use: [
                     'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     // 'postcss-loader',
                     'less-loader',
@@ -49,19 +52,27 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
                 exclude: /node_modules/,
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 8192, // 图片小于这个值会被转成base64
-                    name: 'assets/img/[name].[hash:7].[ext]',
+                    limit: 10240, // 图片小于这个值会被转成base64
+                    name: 'images/[name].[hash:7].[ext]',
                     // name: utils.assetsPath('img/[name].[hash:7].[ext]') // 大于上面的值，图片会直接被放到这个文件夹，需要安装file-loader
+                },
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10240,
+                    name: 'fonts/[name].[hash:7].[ext]',
                 },
             },
         ],
     },
-    plugins: [new VueLoaderPlugin()],
+    plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin()],
 };

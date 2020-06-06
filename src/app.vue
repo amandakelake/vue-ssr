@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-container">
         <h1>Demo</h1>
         <hello-ssr />
         <img :src="FdLogo" alt="" />
@@ -24,3 +24,10 @@ export default {
     },
 };
 </script>
+
+<style lang="less" scoped>
+.app-container {
+    font-size: 20px;
+    color: #333;
+}
+</style>
