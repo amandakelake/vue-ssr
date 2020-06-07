@@ -23,9 +23,9 @@ module.exports = merge(common, {
         clientLogLevel: 'warning', // 控制台提示信息级别是 warning 以上
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../', 'tpl/index.html'),
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, '../', 'tpl/index.html'),
+        // }),
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsPlugin(),
     ],

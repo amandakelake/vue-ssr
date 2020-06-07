@@ -1,8 +1,32 @@
-// const path = require('path');
+const path = require('path');
 // const { VueLoaderPlugin } = require('vue-loader');
 const util = require('./utils');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const DllLinkPlugin = require('dll-link-webpack-plugin');
+// const ddlConfig = require('./webpack.ddl');
+
+const alternativePlugin = () => {
+    const prodConfig = [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, '../', 'tpl/index.html'),
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true,
+            },
+        }),
+    ];
+    const devConfig = [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, '../', 'tpl/index.html'),
+        }),
+    ];
+    return util.IS_PROD ? prodConfig : devConfig;
+};
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -77,7 +101,15 @@ module.exports = {
             },
         ],
     },
-    plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin()],
+    plugins: [
+        ...alternativePlugin(),
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin(),
+        // new DllLinkPlugin({
+        //     htmlMode: true,
+        //     config: ddlConfig,
+        // }),
+    ],
     stats: {
         children: false, // 避免过多子信息
     },
