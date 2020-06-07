@@ -14,7 +14,7 @@ module.exports = merge(common, {
     },
     plugins: [
         // new HtmlWebpackPlugin({
-        //     template: path.join(__dirname, '../', 'tpl/index.html'),
+        //     template: path.join(__dirname, '../', 'template/index.html'),
         //     minify: {
         //         // 压缩 html
         //         removeComments: true, // 移除注释

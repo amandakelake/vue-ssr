@@ -24,7 +24,7 @@ module.exports = merge(common, {
     },
     plugins: [
         // new HtmlWebpackPlugin({
-        //     template: path.join(__dirname, '../', 'tpl/index.html'),
+        //     template: path.join(__dirname, '../', 'template/index.html'),
         // }),
         new webpack.HotModuleReplacementPlugin(),
         new FriendlyErrorsPlugin(),

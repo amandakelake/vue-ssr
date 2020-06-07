@@ -12,7 +12,7 @@ const alternativePlugin = () => {
     const prodConfig = [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../', 'tpl/index.html'),
+            template: path.join(__dirname, '../', 'template/index.html'),
             minify: {
                 removeComments: true,
                 collapseWhitespace: true,
@@ -22,7 +22,7 @@ const alternativePlugin = () => {
     ];
     const devConfig = [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, '../', 'tpl/index.html'),
+            template: path.join(__dirname, '../', 'template/index.html'),
         }),
     ];
     return util.IS_PROD ? prodConfig : devConfig;
