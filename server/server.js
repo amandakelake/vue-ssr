@@ -7,10 +7,15 @@ const backendApp = new Koa();
 const frontendApp = new Koa();
 const backendRouter = new Router();
 const frontendRouter = new Router();
+const { createBundleRenderer } = require('vue-server-renderer');
 
-const bundle = fs.readFileSync(path.resolve(__dirname, '../dist/server.bundle.js'), 'utf-8');
-const renderer = require('vue-server-renderer').createBundleRenderer(bundle, {
-    template: fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8'),
+const serverBundle = require(path.resolve(__dirname, '../dist/vue-ssr-server-bundle.json'));
+const clientManifest = require(path.resolve(__dirname, '../dist/vue-ssr-client-manifest.json'));
+const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html'), 'utf-8');
+const renderer = createBundleRenderer(serverBundle, {
+    runInNewContext: false,
+    template: template,
+    clientManifest: clientManifest
 });
 
 // 后端Server
