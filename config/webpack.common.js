@@ -27,6 +27,9 @@ const alternativePlugin = () => {
 
 module.exports = {
     mode: process.env.NODE_ENV,
+    entry: {
+        app: util.resolve('src/app.js'),
+    },
     output: {
         path: util.resolve('dist'),
         filename: 'js/[name].[hash].js',
