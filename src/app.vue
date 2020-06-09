@@ -1,5 +1,5 @@
 <template>
-    <div class="app-container">
+    <div class="app-container" id="app">
         <h1>Demo</h1>
         <hello-ssr />
         <img :src="FdLogo" alt="" />
