@@ -1,6 +1,6 @@
 <template>
     <div>
-        SSR components
+        <h1>SSR components</h1>
     </div>
 </template>
 

@@ -4,11 +4,15 @@
         <hello-ssr />
         <img :src="FdLogo" alt="" />
         <img :src="RedLogo" alt="" />
+        <Foo></Foo>
+        <Bar></Bar>
     </div>
 </template>
 
 <script>
 import HelloSsr from '@/components/hello-ssr.vue';
+import Foo from '@/components/foo.vue';
+import Bar from '@/components/bar.vue';
 import FdLogo from '@/assets/images/f-200.png';
 import RedLogo from '@/assets/images/logo-round.png';
 export default {
@@ -21,6 +25,8 @@ export default {
     },
     components: {
         HelloSsr,
+        Foo,
+        Bar,
     },
 };
 </script>
@@ -29,5 +35,6 @@ export default {
 .app-container {
     font-size: 20px;
     color: #333;
+    padding: 20px;
 }
 </style>
