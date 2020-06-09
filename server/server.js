@@ -15,7 +15,7 @@ const template = fs.readFileSync(path.resolve(__dirname, '../dist/index.ssr.html
 const renderer = createBundleRenderer(serverBundle, {
     runInNewContext: false,
     template: template,
-    clientManifest: clientManifest
+    clientManifest: clientManifest,
 });
 
 // 后端Server
