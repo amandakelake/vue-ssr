@@ -4,15 +4,14 @@
         <hello-ssr />
         <img :src="FdLogo" alt="" />
         <img :src="RedLogo" alt="" />
-        <Foo></Foo>
-        <Bar></Bar>
+        <router-link to="/bar">go to bar</router-link>
+        <router-link to="/foo">go to foo</router-link>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 import HelloSsr from '@/components/hello-ssr.vue';
-import Foo from '@/components/foo.vue';
-import Bar from '@/components/bar.vue';
 import FdLogo from '@/assets/images/f-200.png';
 import RedLogo from '@/assets/images/logo-round.png';
 export default {
@@ -25,8 +24,6 @@ export default {
     },
     components: {
         HelloSsr,
-        Foo,
-        Bar,
     },
     beforeCreate() {
         console.log('App.vue beforeCreate');
