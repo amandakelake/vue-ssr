@@ -1,9 +1,12 @@
 <template>
-    <div class="app-container">
+    <div class="app-container" id="app">
         <h1>Demo</h1>
         <hello-ssr />
         <img :src="FdLogo" alt="" />
         <img :src="RedLogo" alt="" />
+        <router-link to="/bar">go to bar</router-link>
+        <router-link to="/foo">go to foo</router-link>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -22,12 +25,25 @@ export default {
     components: {
         HelloSsr,
     },
+    beforeCreate() {
+        // console.log('App.vue beforeCreate');
+    },
+    created() {
+        // console.log('App.vue created');
+    },
+    beforeMount() {
+        // console.log('App.vue beforeMount');
+    },
+    mounted() {
+        // console.log('App.vue mounted');
+    },
 };
 </script>
 
-<style lang="less" scoped>
+<style scoped>
 .app-container {
     font-size: 20px;
     color: #333;
+    padding: 20px;
 }
 </style>

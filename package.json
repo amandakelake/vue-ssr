@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --config config/webpack.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --progress --config config/webpack.prod.js",
-    "start": "node ./server.js"
+    "prod": "cross-env NODE_ENV=production webpack --progress --config config/webpack.prod.js",
+    "build:client": "webpack --config config/webpack.client.config.js",
+    "build:server": "webpack --config config/webpack.server.config.js",
+    "build": "run-p build:*",
+    "start": "node server/server.js",
+    "pm2": "pm2 start server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -35,16 +39,17 @@
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^4.3.0",
-    "koa": "^2.12.0",
-    "koa-static": "^5.0.0",
     "less": "^3.11.3",
     "less-loader": "^6.1.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "style-loader": "^1.2.1",
+    "typescript": "^3.9.5",
     "url-loader": "^4.1.0",
     "vue-loader": "^15.9.2",
+    "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
@@ -54,11 +59,16 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
     "@babel/runtime": "^7.10.2",
+    "koa": "^2.12.0",
+    "koa-router": "^9.0.1",
+    "koa-static": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "vue": "^2.6.11",
     "vue-router": "^3.3.2",
-    "vuex": "^3.4.0"
+    "vue-server-renderer": "^2.6.11",
+    "vuex": "^3.4.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "engines": {
     "node": ">= 8.0.0",
