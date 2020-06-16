@@ -9,7 +9,8 @@
     "build:client": "webpack --config config/webpack.client.config.js",
     "build:server": "webpack --config config/webpack.server.config.js",
     "build": "run-p build:*",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "pm2": "pm2 start server/server.js"
   },
   "keywords": [],
   "author": "",

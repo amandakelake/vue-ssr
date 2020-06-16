@@ -26,16 +26,16 @@ export default {
         HelloSsr,
     },
     beforeCreate() {
-        console.log('App.vue beforeCreate');
+        // console.log('App.vue beforeCreate');
     },
     created() {
-        console.log('App.vue created');
+        // console.log('App.vue created');
     },
     beforeMount() {
-        console.log('App.vue beforeMount');
+        // console.log('App.vue beforeMount');
     },
     mounted() {
-        console.log('App.vue mounted');
+        // console.log('App.vue mounted');
     },
 };
 </script>
