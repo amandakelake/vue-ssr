@@ -31,6 +31,7 @@ module.exports = {
             repo: 'https://github.com/amandakelake/vue-ssr',
             // 拉取到服务器的哪个目录下
             path: '/home/travis/vue-ssr',
+            ssh_options: 'StrictHostKeyChecking=no',
             'pre-deploy-local': '',
             // 部署前执行
             'pre-deploy': 'git fetch --all',
