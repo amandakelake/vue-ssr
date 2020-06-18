@@ -1,6 +1,7 @@
 <template>
     <div class="app-container" id="app">
         <h1>Vue SSR + PM2 + Travis</h1>
+        <div>can pm2 auto restart ?</div>
         <hello-ssr />
         <img :src="FdLogo" alt="" />
         <img :src="RedLogo" alt="" />

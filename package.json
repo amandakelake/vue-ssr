@@ -10,7 +10,10 @@
     "build:server": "webpack --config config/webpack.server.config.js",
     "build": "run-p build:*",
     "start": "node server/server.js",
-    "pm2": "pm2 start server/server.js"
+    "pm2": "pm2 restart server/server.js",
+    "pm2:setup": "pm2 deploy ecosystem.config.js production setup",
+    "pm2:up": "pm2 deploy ecosystem.config.js production update",
+    "pm2:deploy": "pm2 deploy ecosystem.config.js production"
   },
   "keywords": [],
   "author": "",
