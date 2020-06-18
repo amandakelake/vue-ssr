@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+    - stable
+branchs:
+    only:
+        - master
+cache:
+    directories:
+        - node_modules
+before_install:
+    - openssl aes-256-cbc -K $encrypted_64c70e4da8b9_key -iv $encrypted_64c70e4da8b9_iv
+      -in id_rsa.enc -out ~/.ssh/id_rsa -d
+    - chmod 700 ~/.ssh/
+    - chmod 600 ~/.ssh/id_rsa
+install:
+    - yarn install
+scripts:
+    - yarn build
+after_success:
+    # StrictHostKeyChecking=no 必传
+    # 直接secure copy从travis的当前目录复制打包后的文件夹build到远程服务器即可
+    # -i ~/.ssh/id_rsa_travis 要指定使用哪份私钥 默认的是id_rsa
+    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist travis@45.32.33.18:/root/projects/vue-ssr
+    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./server travis@45.32.33.18:/root/projects/vue-ssr
