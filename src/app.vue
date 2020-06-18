@@ -1,6 +1,6 @@
 <template>
     <div class="app-container" id="app">
-        <h1>Demo</h1>
+        <h1>Vue SSR + PM2 + Travis</h1>
         <hello-ssr />
         <img :src="FdLogo" alt="" />
         <img :src="RedLogo" alt="" />
