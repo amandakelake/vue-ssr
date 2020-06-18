@@ -37,7 +37,7 @@ module.exports = {
             // 部署前执行
             'pre-deploy': 'git fetch --all',
             // 部署后执行 自动重启
-            'post-deploy': 'yarn ignore-engines && pm2 reload ecosystem.config.js --env production',
+            'post-deploy': 'yarn --ignore-engines && pm2 reload ecosystem.config.js --env production',
             'pre-setup': '',
             env: {
                 NODE_ENV: 'production',
