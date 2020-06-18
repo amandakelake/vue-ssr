@@ -20,5 +20,5 @@ after_success:
     # StrictHostKeyChecking=no 必传
     # 直接secure copy从travis的当前目录复制打包后的文件夹build到远程服务器即可
     # -i ~/.ssh/id_rsa_travis 要指定使用哪份私钥 默认的是id_rsa
-    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist travis@45.32.33.18:/root/projects/vue-ssr
-    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./server travis@45.32.33.18:/root/projects/vue-ssr
+    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist root@45.32.33.18:/root/projects/vue-ssr
+    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./server root@45.32.33.18:/root/projects/vue-ssr
