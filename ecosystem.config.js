@@ -1,6 +1,7 @@
 module.exports = {
     apps: [
         {
+            name: 'vue-ssr',
             script: './server/server.js',
             watch: [
                 // 监控变化的目录，一旦变化，自动重启
