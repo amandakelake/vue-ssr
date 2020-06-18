@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import createStore from './store/store.js';
 import createRouter from './router/router';
-import App from './App.vue';
+import App from './app.vue';
 
 export function createApp() {
     const store = createStore();
