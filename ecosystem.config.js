@@ -22,20 +22,20 @@ module.exports = {
     deploy: {
         production: {
             // 服务器用户名
-            user: 'travis',
+            user: 'root',
             // 服务器IP地址
             host: '45.32.33.18',
             // 要拉取的git分支
-            ref: 'origin/deploy',
+            ref: 'origin/master',
             // git仓库地址
             repo: 'https://github.com/amandakelake/vue-ssr',
             // 拉取到服务器的哪个目录下
-            path: '/home/travis/vue-ssr',
+            path: '/root/projects/vue-ssr',
             ssh_options: 'StrictHostKeyChecking=no',
             'pre-deploy-local': '',
             // 部署前执行
             'pre-deploy': 'git fetch --all',
-            // 部署后执行
+            // 部署后执行 自动重启
             'post-deploy': 'yarn && pm2 reload ecosystem.config.js --env production',
             'pre-setup': '',
             env: {
