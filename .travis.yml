@@ -20,6 +20,6 @@ after_success:
     # StrictHostKeyChecking=no 必传
     # 将前端构建好的静态资源目录 dist 整个复制到远程服务器上
     # -i ~/.ssh/id_rsa 要指定使用哪份私钥 默认的是id_rsa
-    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist root@45.32.33.18:/root/projects/vue-ssr
+    - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist root@45.32.33.18:/root/projects/ssr
     # 通知PM2执行更新
     - yarn global add pm2 && pm2 deploy ecosystem.config.js production update
