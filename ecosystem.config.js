@@ -31,7 +31,8 @@ module.exports = {
             // git仓库地址
             repo: 'https://github.com/amandakelake/vue-ssr',
             // 拉取到服务器的哪个目录下
-            path: '/root/projects/vue-ssr',
+            path: '/root/projects/',
+            // 自动将 github 加入远程服务器的信任列表
             ssh_options: 'StrictHostKeyChecking=no',
             'pre-deploy-local': '',
             // 部署前执行
