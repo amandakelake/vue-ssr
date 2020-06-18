@@ -7,7 +7,7 @@ module.exports = {
                 // 监控变化的目录，一旦变化，自动重启
                 'src',
                 'server',
-                'build',
+                'config',
             ],
             ignore_watch: [
                 // 忽视这些目录的变化
@@ -37,7 +37,7 @@ module.exports = {
             // 部署前执行
             'pre-deploy': 'git fetch --all',
             // 部署后执行 自动重启
-            'post-deploy': 'yarn && pm2 reload ecosystem.config.js --env production',
+            'post-deploy': 'yarn ignore-engines && pm2 reload ecosystem.config.js --env production',
             'pre-setup': '',
             env: {
                 NODE_ENV: 'production',
