@@ -22,4 +22,4 @@ after_success:
     # -i ~/.ssh/id_rsa 要指定使用哪份私钥 默认的是id_rsa
     - scp -o stricthostkeychecking=no -i ~/.ssh/id_rsa -r ./dist root@45.32.33.18:/root/projects/vue-ssr/source
     # 通知PM2执行更新
-    - yarn global add pm2 && pm2 deploy ecosystem.config.js production update
+    - yarn global add pm2@latest && pm2 deploy ecosystem.config.js production update
