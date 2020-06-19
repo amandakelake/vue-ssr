@@ -14,9 +14,13 @@ module.exports = {
                 'node_modules',
                 'dist',
             ],
+            exec_mode: 'cluster_mode',
             error_file: './logs/err.log',
             out_file: './logs/out.log',
             log_date_format: 'YYYY-MM-DD HH:mm:ss',
+            env_production: {
+                NODE_ENV: 'production',
+            },
         },
     ],
 
