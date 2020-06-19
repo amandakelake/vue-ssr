@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
         {
-            name: 'vue-ssr',
+            name: 'ssr',
             script: './server/server.js',
             watch: [
                 // 监控变化的目录，一旦变化，自动重启
@@ -31,7 +31,7 @@ module.exports = {
             // git仓库地址
             repo: 'https://github.com/amandakelake/vue-ssr',
             // 拉取到服务器的哪个目录下
-            path: '/root/projects/vue-ssr',
+            path: '/root/projects/ssr',
             // 自动将 github 加入远程服务器的信任列表
             ssh_options: 'StrictHostKeyChecking=no',
             'pre-deploy-local': '',
