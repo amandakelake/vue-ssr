@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Bar from '../components/bar';
+import Foo from '../components/foo';
 
 Vue.use(Router);
 
@@ -13,17 +14,15 @@ function createRouter() {
         {
             path: '/foo',
             // 异步组件 按需加载
-            component: () => import('../components/foo.vue')
-        }
+            // component: () => import('../components/foo.vue')
+            component: Foo,
+        },
     ];
 
-    const router = new Router({
+    return new Router({
         mode: 'history',
-        routes
-    })
-
-    return router
+        routes,
+    });
 }
-
 
 export default createRouter;
